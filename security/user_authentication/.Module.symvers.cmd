@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/kerenel/security/user_authentication/Module.symvers :=  scripts/mod/modpost -m -a     -o /home/ubuntu/kerenel/security/user_authentication/Module.symvers -T /home/ubuntu/kerenel/security/user_authentication/modules.order -i Module.symvers -e 
