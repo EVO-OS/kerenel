@@ -8,6 +8,7 @@
 #include <linux/cred.h>
 #include <linux/uaccess.h>
 #include <linux/lsm_hooks.h>
+#include <linux/printk.h>
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("EvoOS Team");
@@ -33,7 +34,7 @@ struct evo_acl {
 };
 
 // Function to check file permissions
-static int evo_check_file_permission(struct file *file, int mask)
+static int evo_check_file_permission(struct file *_file, int mask)
 {
     struct evo_acl *acl;
     int i;
@@ -73,19 +74,18 @@ static struct security_hook_list evo_hooks[] = {
 // Initialize the access control module
 static int evo_access_control_init(void)
 {
-    printk(KERN_INFO "EvoOS: Initializing Access Control module\n");
+    pr_info("EvoOS: Initializing Access Control module\n");
     // Register the security hooks
-    security_add_hooks(evo_hooks, ARRAY_SIZE(evo_hooks), "evo_access_control");
+    security_add_hooks(evo_hooks, ARRAY_SIZE(evo_hooks), NULL);
     return 0;
 }
 
 // Cleanup the access control module
 static void evo_access_control_exit(void)
 {
-    printk(KERN_INFO "EvoOS: Exiting Access Control module\n");
+    pr_info("EvoOS: Exiting Access Control module\n");
     // No need to explicitly unregister hooks, the LSM framework handles this
 }
 
-// Module init and exit declarations
 module_init(evo_access_control_init);
 module_exit(evo_access_control_exit);
