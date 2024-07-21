@@ -11,7 +11,6 @@
 #include <linux/printk.h>
 
 #define MAX_ACL_ENTRIES 16
-#define EVO_ACCESS_CONTROL_LSM_NAME "evo_access_control"
 #define UNUSED(x) (void)(x)
 
 // Function prototypes
@@ -66,7 +65,7 @@ static int evo_file_permission(struct file *file, int mask)
 }
 
 // Define the security hooks
-static const struct security_hook_list evo_hooks[] = {
+static struct security_hook_list evo_hooks[] = {
     LSM_HOOK_INIT(file_permission, evo_file_permission),
 };
 
@@ -75,7 +74,7 @@ static int evo_access_control_init(void)
 {
     pr_info("EvoOS: Initializing Access Control module\n");
     // Register the security hooks
-    security_add_hooks(evo_hooks, ARRAY_SIZE(evo_hooks), EVO_ACCESS_CONTROL_LSM_NAME);
+    security_add_hooks(evo_hooks, ARRAY_SIZE(evo_hooks), NULL);
     return 0;
 }
 
@@ -90,3 +89,5 @@ module_init(evo_access_control_init);
 module_exit(evo_access_control_exit);
 
 MODULE_LICENSE("GPL");
+MODULE_AUTHOR("EvoOS Team");
+MODULE_DESCRIPTION("EvoOS Access Control Module");
