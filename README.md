@@ -1,5 +1,3 @@
-Certainly! Here's an updated version of the `README.md` file that acknowledges the use of Linux and other reference kernels:
-
 ```markdown```
 # EvoOS Kernel
 
