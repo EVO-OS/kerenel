@@ -44,7 +44,7 @@ To build and run EvoOS, you need the following tools and libraries installed on 
 
 1. **Clone the Repository:**
     ```bash
-    git clone https://github.com/VishwamAI/EvoOS.git
+    git clone https://github.com/EVO-OS/kerenel.git
     cd EvoOS
     ```
 
