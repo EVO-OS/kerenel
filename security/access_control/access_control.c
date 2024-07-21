@@ -8,6 +8,7 @@
 #include <linux/cred.h>
 #include <linux/uaccess.h>
 #include <linux/lsm_hooks.h>
+#include <linux/printk.h>
 
 #define MAX_ACL_ENTRIES 16
 #define EVO_ACCESS_CONTROL_LSM_NAME "evo_access_control"
@@ -65,34 +66,27 @@ static int evo_file_permission(struct file *file, int mask)
 }
 
 // Define the security hooks
-static struct security_hook_list evo_hooks[] = {
+static const struct security_hook_list evo_hooks[] = {
     LSM_HOOK_INIT(file_permission, evo_file_permission),
 };
 
-static struct lsm_id evo_lsmid = {
-    .name = EVO_ACCESS_CONTROL_LSM_NAME,
-};
-
 // Initialize the access control module
-static int __init evo_access_control_init(void)
+static int evo_access_control_init(void)
 {
     pr_info("EvoOS: Initializing Access Control module\n");
     // Register the security hooks
-    security_add_hooks(evo_hooks, ARRAY_SIZE(evo_hooks), &evo_lsmid);
+    security_add_hooks(evo_hooks, ARRAY_SIZE(evo_hooks), EVO_ACCESS_CONTROL_LSM_NAME);
     return 0;
 }
 
 // Cleanup the access control module
-static void __exit evo_access_control_exit(void)
+static void evo_access_control_exit(void)
 {
     pr_info("EvoOS: Exiting Access Control module\n");
     // No need to explicitly unregister hooks, the LSM framework handles this
 }
 
-// Module init and exit declarations
 module_init(evo_access_control_init);
 module_exit(evo_access_control_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("EvoOS Team");
-MODULE_DESCRIPTION("EvoOS Access Control Module");
