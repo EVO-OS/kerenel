@@ -14,6 +14,8 @@ MODULE_AUTHOR("EvoOS Team");
 MODULE_DESCRIPTION("EvoOS Access Control Module");
 
 #define MAX_ACL_ENTRIES 16
+#define EVO_ACCESS_CONTROL_LSM_NAME "evo_access_control"
+#define UNUSED(x) (void)(x)
 
 // Function prototypes
 static int evo_access_control_init(void);
@@ -35,6 +37,7 @@ struct evo_acl {
 // Function to check file permissions
 static int evo_check_file_permission(struct file *file, int mask)
 {
+    UNUSED(file);
     struct evo_acl *acl;
     int i;
 
@@ -75,7 +78,7 @@ static int evo_access_control_init(void)
 {
     printk(KERN_INFO "EvoOS: Initializing Access Control module\n");
     // Register the security hooks
-    security_add_hooks(evo_hooks, ARRAY_SIZE(evo_hooks), "evo_access_control");
+    security_add_hooks(evo_hooks, ARRAY_SIZE(evo_hooks), EVO_ACCESS_CONTROL_LSM_NAME);
     return 0;
 }
 
