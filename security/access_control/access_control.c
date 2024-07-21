@@ -10,8 +10,11 @@
 #include <linux/lsm_hooks.h>
 #include <linux/printk.h>
 
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("EvoOS Team");
+MODULE_DESCRIPTION("EvoOS Access Control Module");
+
 #define MAX_ACL_ENTRIES 16
-#define UNUSED(x) (void)(x)
 
 // Function prototypes
 static int evo_access_control_init(void);
@@ -31,9 +34,8 @@ struct evo_acl {
 };
 
 // Function to check file permissions
-static int evo_check_file_permission(struct file *file, int mask)
+static int evo_check_file_permission(struct file *_file, int mask)
 {
-    UNUSED(file);
     struct evo_acl *acl;
     int i;
 
@@ -87,7 +89,3 @@ static void evo_access_control_exit(void)
 
 module_init(evo_access_control_init);
 module_exit(evo_access_control_exit);
-
-MODULE_LICENSE("GPL");
-MODULE_AUTHOR("EvoOS Team");
-MODULE_DESCRIPTION("EvoOS Access Control Module");
