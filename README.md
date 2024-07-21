@@ -2,7 +2,7 @@ Certainly! Here's an updated version of the `README.md` file that acknowledges t
 
 ```markdown
 # EvoOS Kernel
-
+```
 EvoOS is a new operating system designed for both desktop and mobile environments. This repository contains the kernel source code and essential components for building and running EvoOS. EvoOS takes inspiration from existing kernels such as Linux and other modern operating systems.
 
 ## Table of Contents
