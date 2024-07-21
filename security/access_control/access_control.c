@@ -9,6 +9,10 @@
 #include <linux/uaccess.h>
 #include <linux/lsm_hooks.h>
 
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("EvoOS Team");
+MODULE_DESCRIPTION("EvoOS Access Control Module");
+
 #define MAX_ACL_ENTRIES 16
 
 // Function prototypes
@@ -33,7 +37,6 @@ static int evo_check_file_permission(struct file *file, int mask)
 {
     struct evo_acl *acl;
     int i;
-    struct inode *inode = file_inode(file);
 
     // Placeholder: Get ACL for the file
     acl = kmalloc(sizeof(struct evo_acl), GFP_KERNEL);
@@ -59,7 +62,6 @@ static int evo_check_file_permission(struct file *file, int mask)
 // LSM hook for file permissions
 static int evo_file_permission(struct file *file, int mask)
 {
-    struct inode *inode = file_inode(file);
     return evo_check_file_permission(file, mask);
 }
 
@@ -87,7 +89,3 @@ static void evo_access_control_exit(void)
 // Module init and exit declarations
 module_init(evo_access_control_init);
 module_exit(evo_access_control_exit);
-
-MODULE_LICENSE("GPL");
-MODULE_AUTHOR("EvoOS Team");
-MODULE_DESCRIPTION("EvoOS Access Control Module");
