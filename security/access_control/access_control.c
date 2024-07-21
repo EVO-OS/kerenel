@@ -17,7 +17,7 @@ MODULE_DESCRIPTION("EvoOS Access Control Module");
 #define EVO_ACCESS_CONTROL_LSM_NAME "evo_access_control"
 #define UNUSED(x) (void)(x)
 
-static struct lsm_id evo_access_control_lsmid = { .name = EVO_ACCESS_CONTROL_LSM_NAME };
+#define LSM_HOOK_INIT(HEAD, HOOK) { .head = (HEAD), .hook = (HOOK) }
 
 // Function prototypes
 static int evo_access_control_init(void);
@@ -80,7 +80,7 @@ static int evo_access_control_init(void)
 {
     printk(KERN_INFO "EvoOS: Initializing Access Control module\n");
     // Register the security hooks
-    security_add_hooks(evo_hooks, ARRAY_SIZE(evo_hooks), &evo_access_control_lsmid);
+    security_add_hooks(evo_hooks, ARRAY_SIZE(evo_hooks), "evo_access_control");
     return 0;
 }
 
