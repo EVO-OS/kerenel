@@ -64,6 +64,39 @@ To build and run EvoOS, you need the following tools and libraries installed on 
     ```bash
     make
     ```
+### Running EvoOS
+
+You can run EvoOS using QEMU for testing and development:
+
+```bash
+qemu-system-i386 -kernel bin/kernel.bin
+```
+### Directory Structure
+src/: Source code for the kernel and essential components
+include/: Header files
+boot/: Bootloader code
+docs/: Documentation and design notes
+bin/: Compiled binaries
+scripts/: Build and utility scripts
+Contributing
+We welcome contributions from the community! To contribute:
+
+Fork the repository.
+Create a new branch (git checkout -b feature-branch).
+Make your changes and commit them (git commit -am 'Add new feature').
+Push to the branch (git push origin feature-branch).
+Create a new Pull Request.
+Please ensure your code adheres to the project's coding standards and includes appropriate tests.
+
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Contact
+For questions, suggestions, or feedback, please reach out to us:
+
+Kasinadhsarma - LinkedIn
+GitHub Issues - Open a new issue on this repository
+Thank you for contributing to EvoOS!
 
 ### Running EvoOS
 
