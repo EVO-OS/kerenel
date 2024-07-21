@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/kerenel/security/user_authentication/user_auth.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/ubuntu/kerenel/security/user_authentication/user_auth.ko /home/ubuntu/kerenel/security/user_authentication/user_auth.o /home/ubuntu/kerenel/security/user_authentication/user_auth.mod.o;  true

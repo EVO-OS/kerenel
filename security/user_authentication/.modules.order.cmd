@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/kerenel/security/user_authentication/modules.order := {   echo /home/ubuntu/kerenel/security/user_authentication/user_auth.o; :; } > /home/ubuntu/kerenel/security/user_authentication/modules.order

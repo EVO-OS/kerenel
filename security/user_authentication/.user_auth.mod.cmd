@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/kerenel/security/user_authentication/user_auth.mod := printf '%s\n'   user_auth.o | awk '!x[$$0]++ { print("/home/ubuntu/kerenel/security/user_authentication/"$$0) }' > /home/ubuntu/kerenel/security/user_authentication/user_auth.mod
