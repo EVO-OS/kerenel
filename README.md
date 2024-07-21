@@ -1,6 +1,9 @@
-# kerenel
+Certainly! Here's an updated version of the `README.md` file that acknowledges the use of Linux and other reference kernels:
 
-EvoOS is a new operating system designed for both desktop and mobile environments. This repository contains the kernel source code and essential components for building and running EvoOS.
+```markdown
+# EvoOS Kernel
+
+EvoOS is a new operating system designed for both desktop and mobile environments. This repository contains the kernel source code and essential components for building and running EvoOS. EvoOS takes inspiration from existing kernels such as Linux and other modern operating systems.
 
 ## Table of Contents
 
@@ -13,11 +16,12 @@ EvoOS is a new operating system designed for both desktop and mobile environment
 - [Directory Structure](#directory-structure)
 - [Contributing](#contributing)
 - [License](#license)
+- [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
 
 ## Introduction
 
-EvoOS is an ambitious project aimed at creating a versatile operating system that can run seamlessly on both desktop and mobile devices. It features a custom kernel, a unique user interface, and optimized performance for various hardware configurations.
+EvoOS is an ambitious project aimed at creating a versatile operating system that can run seamlessly on both desktop and mobile devices. It features a custom kernel, a unique user interface, and optimized performance for various hardware configurations. EvoOS takes reference from Linux and other modern operating systems to incorporate best practices and proven technologies.
 
 ## Features
 
@@ -44,7 +48,7 @@ To build and run EvoOS, you need the following tools and libraries installed on 
 
 1. **Clone the Repository:**
     ```bash
-    git clone https://github.com/EVO-OS/kerenel.git
+    git clone https://github.com/VishwamAI/EvoOS.git
     cd EvoOS
     ```
 
@@ -64,6 +68,7 @@ To build and run EvoOS, you need the following tools and libraries installed on 
     ```bash
     make
     ```
+
 ### Running EvoOS
 
 You can run EvoOS using QEMU for testing and development:
@@ -71,36 +76,56 @@ You can run EvoOS using QEMU for testing and development:
 ```bash
 qemu-system-i386 -kernel bin/kernel.bin
 ```
-### Directory Structure
-src/: Source code for the kernel and essential components
-include/: Header files
-boot/: Bootloader code
-docs/: Documentation and design notes
-bin/: Compiled binaries
-scripts/: Build and utility scripts
-Contributing
+
+## Directory Structure
+
+- `src/`: Source code for the kernel and essential components
+- `include/`: Header files
+- `boot/`: Bootloader code
+- `docs/`: Documentation and design notes
+- `bin/`: Compiled binaries
+- `scripts/`: Build and utility scripts
+
+## Contributing
+
 We welcome contributions from the community! To contribute:
 
-Fork the repository.
-Create a new branch (git checkout -b feature-branch).
-Make your changes and commit them (git commit -am 'Add new feature').
-Push to the branch (git push origin feature-branch).
-Create a new Pull Request.
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit them (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Create a new Pull Request.
+
 Please ensure your code adheres to the project's coding standards and includes appropriate tests.
 
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+## License
 
-Contact
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+EvoOS takes inspiration and reference from the following projects:
+
+- [Linux Kernel](https://www.kernel.org)
+- [Minix](http://www.minix3.org)
+- [FreeBSD](https://www.freebsd.org)
+- [NetBSD](https://www.netbsd.org)
+- [Xv6](https://pdos.csail.mit.edu/6.828/2020/xv6.html)
+
+We thank the developers and contributors of these projects for their invaluable work and contributions to the open-source community.
+
+## Contact
+
 For questions, suggestions, or feedback, please reach out to us:
 
-Kasinadhsarma - LinkedIn
-GitHub Issues - Open a new issue on this repository
+- **Kasinadhsarma** - [LinkedIn](https://www.linkedin.com/in/kasinadhsarma/)
+- **GitHub Issues** - Open a new issue on this repository
+
 Thank you for contributing to EvoOS!
+```
 
-### Running EvoOS
+### Notes:
 
-You can run EvoOS using QEMU for testing and development:
-
-```bash
-qemu-system-i386 -kernel bin/kernel.bin
+1. Update the repository URL (`https://github.com/VishwamAI/EvoOS.git`) with the actual URL of your GitHub repository.
+2. Customize the contact section with relevant links and contact information.
+3. Include additional sections or information as needed for your project.
